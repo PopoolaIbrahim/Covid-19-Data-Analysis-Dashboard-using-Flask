@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Management Tool - Settings</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        padding-top: 20px;
+        background-color: #f8f9fa;
+    }
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Settings</h2>
+    <form>
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
+        </div>
+        <div class="form-group">
+            <label for="companyLogo">Company Logo</label>
+            <input type="file" class="form-control-file" id="companyLogo">
+        </div>
+        <div class="form-group">
+            <label for="timezone">Timezone</label>
+            <select class="form-control" id="timezone">
+                <option value="gmt-12">GMT-12</option>
+                <option value="gmt-11">GMT-11</option>
+                <!-- Add more timezone options as needed -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dateFormat">Date Format</label>
+            <select class="form-control" id="dateFormat">
+                <option value="mm/dd/yyyy">MM/DD/YYYY</option>
+                <option value="dd/mm/yyyy">DD/MM/YYYY</option>
+                <!-- Add more date format options as needed -->
+            </select>
+        </div>
+        <!-- Add more settings options here -->
+        <button type="submit" class="btn btn-primary">Save Settings</button>
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

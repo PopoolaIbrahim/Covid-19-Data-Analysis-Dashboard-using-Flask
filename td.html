@@ -1,0 +1,247 @@
+{% include 'emppagehead.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Training and Development</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .department-details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .department-details.active {
+            display: block;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<br>
+<body>
+    <div class="container">
+        <h1>Training and Development in a Company</h1>
+        <p>Training and development play a crucial role in the success of any organization. It helps employees acquire new skills, improve existing ones, and enhance their overall performance.</p>
+        <p>Effective training and development programs can lead to increased employee satisfaction, higher productivity, and a more skilled workforce.</p>
+
+        <div>
+            <label for="department">Select Your Department:</label>
+            <select id="department" onchange="showDepartmentDetails()">
+                <option value="">Select Department</option>
+                <option value="hr">Human Resources</option>
+                <option value="finance">Finance</option>
+                <option value="marketing">Marketing</option>
+                <option value="sales">Sales</option>
+                <option value="it">Information Technology</option>
+                <option value="operations">Operations</option>
+                <option value="customer-service">Customer Service</option>
+                <option value="research">Research & Development</option>
+            </select>
+            <button onclick="resetSelection()">Reset</button>
+        </div>
+
+        <div id="hr" class="department-details">
+            <h2>Human Resources Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Improve recruitment and retention</li>
+                <li>Enhance employee engagement</li>
+                <li>Develop leadership skills</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Offer regular training sessions on recruitment best practices</li>
+                <li>Provide opportunities for employees to attend leadership development programs</li>
+                <li>Implement mentorship programs for new hires</li>
+            </ul>
+        </div>
+
+        <div id="finance" class="department-details">
+            <h2>Finance Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Improve financial analysis skills</li>
+                <li>Enhance understanding of financial regulations</li>
+                <li>Develop budgeting and forecasting skills</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide regular training on financial analysis tools</li>
+                <li>Organize workshops on new financial regulations</li>
+                <li>Offer courses on budgeting and forecasting techniques</li>
+            </ul>
+        </div>
+
+        <div id="marketing" class="department-details">
+            <h2>Marketing Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Enhance marketing strategy development skills</li>
+                <li>Improve understanding of digital marketing channels</li>
+                <li>Develop creativity and innovation in marketing campaigns</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide training on market research and analysis</li>
+                <li>Organize workshops on social media marketing</li>
+                <li>Offer courses on creative thinking and problem-solving</li>
+            </ul>
+        </div>
+
+        <div id="sales" class="department-details">
+            <h2>Sales Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Enhance sales techniques and strategies</li>
+                <li>Improve customer relationship management skills</li>
+                <li>Develop negotiation and persuasion skills</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide regular sales training workshops</li>
+                <li>Offer courses on customer psychology and behavior</li>
+                <li>Implement mentorship programs for new sales representatives</li>
+            </ul>
+        </div>
+
+        <div id="it" class="department-details">
+            <h2>Information Technology Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Enhance technical skills in programming and software development</li>
+                <li>Improve understanding of cybersecurity best practices</li>
+                <li>Develop proficiency in new technologies and tools</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide regular technical training sessions</li>
+                <li>Organize workshops on cybersecurity threats and prevention</li>
+                <li>Offer courses on emerging technologies such as AI and blockchain</li>
+            </ul>
+        </div>
+
+        <div id="operations" class="department-details">
+            <h2>Operations Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Improve efficiency in operations management</li>
+                <li>Enhance supply chain management skills</li>
+                <li>Develop project management skills</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide training on lean management principles</li>
+                <li>Organize workshops on supply chain optimization</li>
+                <li>Offer courses on project management methodologies</li>
+            </ul>
+        </div>
+
+        <div id="customer-service" class="department-details">
+            <h2>Customer Service Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Improve customer interaction and communication skills</li>
+                <li>Enhance problem-solving abilities</li>
+                <li>Develop empathy and patience</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide regular customer service training workshops</li>
+                <li>Offer courses on active listening and conflict resolution</li>
+                <li>Implement role-playing exercises to simulate customer interactions</li>
+            </ul>
+        </div>
+
+        <div id="research" class="department-details">
+            <h2>Research & Development Training and Development Plan</h2>
+            <h3>Goals</h3>
+            <ul>
+                <li>Enhance research skills and methodologies</li>
+                <li>Improve innovation and creativity</li>
+                <li>Develop project management skills</li>
+            </ul>
+            <h3>Guidelines</h3>
+            <ul>
+                <li>Provide training on research design and data analysis</li>
+                <li>Organize brainstorming sessions for new ideas</li>
+                <li>Offer courses on project management and collaboration</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function showDepartmentDetails() {
+            var department = document.getElementById("department").value;
+            var departmentDetails = document.getElementsByClassName("department-details");
+
+            for (var i = 0; i < departmentDetails.length; i++) {
+                departmentDetails[i].classList.remove("active");
+            }
+
+            if (department) {
+                document.getElementById(department).classList.add("active");
+            }
+        }
+
+        function resetSelection() {
+            document.getElementById("department").selectedIndex = 0;
+            var departmentDetails = document.getElementsByClassName("department-details");
+
+            for (var i = 0; i < departmentDetails.length; i++) {
+                departmentDetails[i].classList.remove("active");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% include 'index_header.html' %}
+{% block title %} Talent Management and Employee Performance {% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Main Content -->
+        <main role="main" class="col-md-12 px-md-4">
+            <div class="container my-4 mt-4">
+                <!-- Login Form -->
+                <div class="col-md-6" style="float: right;">
+                    <div class="card" style="border-radius: 10px; padding: 20px;">
+                        <h2 style="text-align: center; margin-bottom: 20px; font-weight: bold;">Login As:</h2>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <button class="btn btn-outline-primary active" id="employeeBtn">
+                                User
+                            </button>
+                        </div>
+                        <div style="margin-bottom: 20px;"></div>
+                        <form action="/signin" method="post">
+                            <div class="form-group" id="employeeFields">
+                                <label for="username">User Name:</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                <label for="employeePassword">Password:</label>
+                                <div class="input-group">
+                                <input type="password" name="password" class="form-control" id="employeePassword" placeholder="Password">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="fa fa-eye-slash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Login</button>
+                        </form>
+                           <a href="#" style="margin-top: 10px; display: block; text-align: center;"><i class="fa fa-key"></i> Forgot password?</a>
+                          {% if message %}
+                          <p>{{message}}</p>
+                          {% endif %}
+                            <p id="registerOption" style="text-align: center; display: block;">
+                                If you don’t have an account, please
+                                <a href="/register" <i class="fa fa-user-plus"></i> Register Yourself</a>
+                            </p>
+                    </div>
+                </div>
+                <!-- Video -->
+                <div class="col-md-6" style="margin-bottom: 20px;">
+                    <video autoplay muted loop style="width: 50%; max-height: 500px; object-fit: cover;">
+                        <source src="{{ url_for('static', filename='blue.mp4') }}" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .btn-outline-primary {
+        color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-outline-primary.active {
+        background-color: #81C784;
+        color: #fff;
+        border-color: #81C784;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .text-black {
+        color: #000000 !important;
+    }
+</style>
+
+<script>
+<!--    // Function to toggle between employee and HR manager login fields-->
+<!--    document.getElementById('employeeBtn').addEventListener('click', function() {-->
+<!--        document.getElementById('employeeFields').style.display = 'block';-->
+<!--        document.getElementById('registerOption').style.display = 'block'; // Show register option-->
+<!--    });-->
+
+<!--    // Function to toggle password visibility for employee-->
+<!--    document.getElementById('togglePassword').addEventListener('click', function() {-->
+<!--        var passwordField = document.getElementById('employeePassword');-->
+<!--        if (passwordField.type === 'password') {-->
+<!--            passwordField.type = 'text';-->
+<!--            this.innerHTML = '<i class="fa fa-eye"></i>';-->
+<!--        } else {-->
+<!--            passwordField.type = 'password';-->
+<!--            this.innerHTML = '<i class="fa fa-eye-slash"></i>';-->
+<!--        }-->
+<!--    }););-->
+</script>
+
+{% endblock %}

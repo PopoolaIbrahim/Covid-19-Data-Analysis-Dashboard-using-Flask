@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% include 'emppagehead.html' %}
+
+{% block title %} Upcoming Events {% endblock %}
+
+{% block body %}
+<div class="container my-4 mt-4">
+    <!-- Upcoming Events Section -->
+    <div class="jumbotron p-4" style="background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px;">
+        <h1 class="text-center text-danger mb-4">Upcoming Events</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 1</h5>
+                        <p class="card-text">Join us for a networking event where industry leaders will share insights on the latest trends and innovations. Don't miss this opportunity to connect with professionals in your field.</p>
+                        <p class="card-text"><strong>Venue:</strong> Conference Hall A</p>
+                        <p class="card-text"><strong>Date:</strong> May 15, 2024</p>
+                        <p class="card-text"><strong>Time:</strong> 9:00 AM - 12:00 PM</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Event 2</h5>
+                        <p class="card-text">Discover new strategies for business growth at our seminar featuring guest speakers and interactive workshops. Learn from experts and expand your knowledge base.</p>
+                        <p class="card-text"><strong>Venue:</strong> Seminar Room B</p>
+                        <p class="card-text"><strong>Date:</strong> June 10, 2024</p>
+                        <p class="card-text"><strong>Time:</strong> 2:00 PM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

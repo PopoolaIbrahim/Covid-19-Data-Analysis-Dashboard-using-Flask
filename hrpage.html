@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %} Talent Management and Employee Performance {% endblock %}
+
+{% block body %}
+<div class="container-fluid" style="display: flex;">
+
+    <style>
+        /* Reset all padding and margin */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Define styles for the buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Define styles for the Deaths button */
+        .btn-deaths {
+            background-color: #e74c3c; /* Red color */
+            color: #fff; /* White text color */
+        }
+
+        /* Define styles for the Dashboard button */
+        .btn-dashboard {
+            background-color: #3498db; /* Blue color */
+            color: #fff; /* White text color */
+        }
+
+        /* Add hover effect */
+        .btn:hover {
+            filter: brightness(90%);
+        }
+
+        /* Add active effect */
+        .btn:active {
+            filter: brightness(80%);
+        }
+
+        /* Define styles for the sidebar */
+        .sidebar {
+            background-color: #2C3E50;
+            padding-top: 20px;
+            border-right: 2px solid #34495e;
+            overflow-y: auto; /* Enable scrolling if content exceeds sidebar's height */
+            flex: 0 0 auto; /* Prevent sidebar from growing or shrinking */
+        }
+
+        /* Define styles for the main content */
+        .main-content {
+            flex-grow: 1; /* Make main content area grow to fill remaining space */
+            overflow-y: auto; /* Enable scrolling if content exceeds main content's height */
+            padding-left: 15px;
+        }
+
+        /* Define styles for the sidebar links */
+        .sidebar ul.nav.flex-column {
+            margin-top: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .sidebar ul.nav.flex-column li.nav-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #34495e;
+        }
+
+        .sidebar ul.nav.flex-column li.nav-item a.nav-link {
+            color: white;
+        }
+    </style>
+
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="emplist">List Of Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/report">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Performance Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Training & Development</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Benefits Administration</a>
+                </li>
+                <!-- Add more sidebar options as needed -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4 main-content">
+        <div class="container my-4 mt-4">
+            <!-- Covid Deaths and Counts Prediction and analysis app-->
+            <div class="styled-div my-4 text-white" style="position: relative; overflow: hidden; border-radius: 10px; height: 50vh;">
+                <!-- Background video -->
+                <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <source src="{{ url_for('static', filename='v1.mp4') }}" type="video/mp4">
+                </video>
+                <!-- Content container -->
+                <div class="content-container" style="position: relative; z-index: 1; padding: 80px;">
+                    <!-- Title for COVID-19 app -->
+                    <h2>COVID-19 Analysis and Prediction</h2>
+                    <br>
+                    <!-- Buttons for navigation -->
+                    <div>
+                        <a href="covid_prediction" class="btn btn-deaths">Deaths and Cases Prediction</a>
+                        <a href="ana" class="btn btn-dashboard">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="width:100%">
+                <h1 style="margin-left:20%; margin-top:3px;">Covid Cases & Deaths Over Time Period</h1>
+                <hr>
+                <!-- Display Matplotlib graph -->
+                <img style="width:100%" src="{{ url_for('static', filename='graphs/1_graph_date_base.png') }}" alt="COVID-19 Cases and Deaths Over Time">
+                <img style="width:100%" src="{{ url_for('static', filename='graphs/2_graph_date_base.png') }}" alt="COVID-19 Cases and Deaths Over Time">
+            </div>
+
+            <!-- Alert Messages -->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+    </main>
+</div>
+{% endblock %}

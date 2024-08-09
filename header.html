@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} TAAEPA - Employe Management with Ai {% endblock %}
+
+{% block body %}
+
+<div class="jumbotron p-3" style="background: #1E2837; color: #fff;">
+    <div class="well d-flex justify-content-between align-items-center">
+        <!-- Title on the Left with Professional Color Scheme -->
+        <h2 class="title" style="font-weight: bold; color: #64B5F6;">TAAEPA</h2>
+
+        <!-- Enhanced Search Form with Search Button -->
+        <form class="search-form">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search" style="width: 500px;"> <!-- Adjust the width as needed -->
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- "Home" Button with Professional Color Scheme -->
+        <a href="/hrpage" class="btn btn-primary" style="background: #64B5F6; border-color: #64B5F6; margin-right: -180px;">Home</a>
+
+        <!-- "Settings" Button with Professional Color Scheme -->
+<!--        <a href="/settings" class="btn btn-primary" style="background: #81C784; border-color: #81C784; margin-right: -180px;">Settings</a>-->
+
+        <!-- "Logout" Button with Professional Color Scheme -->
+        <a href="/index" class="btn btn-primary" style="background: #64B5F6; border-color: #64B5F6;">Logout</a>
+    </div>
+</div>
+
+{% endblock %}

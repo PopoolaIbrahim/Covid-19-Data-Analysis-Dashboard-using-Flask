@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} TAAEPA - Employee Management with AI {% endblock %}
+
+{% block body %}
+
+<div class="jumbotron p-3" style="background: #1E2837; color: #fff;">
+    <div class="well d-flex justify-content-between align-items-center">
+        <!-- Title on the Left with Professional Color Scheme -->
+        <h2 class="title" style="font-weight: bold; color: #64B5F6;">TAAEPA</h2>
+        <!-- Buttons on the Right -->
+        <style>
+            .btn-custom {
+                background-color: transparent !important;
+                color: #fff !important;
+                border: none !important;
+                cursor: pointer; /* Add cursor pointer for hover effect */
+            }
+
+            .btn-custom:hover {
+                background-color: #81C784 !important;
+                color: #fff !important;
+            }
+        </style>
+        <div>
+            <a href="index" class="btn btn-custom">Home</a>
+            <a href="aboutus" class="btn btn-custom">About Us</a>
+            <a href="help" class="btn btn-custom">Support/Help</a>
+            <a href="privacy" class="btn btn-custom">Privacy Policy</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

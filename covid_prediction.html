@@ -1,0 +1,145 @@
+{% include 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID Prediction</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Add your custom styles here */
+    .form-container {
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    {% if predicted_deaths %}
+  <div class="result-container mt-4">
+    <p><b><strong>Deaths:</strong> {{predicted_deaths}}</b></p>
+    <p><b><strong>Cases:</strong> {{predicted_cases}}</b></p>
+  </div>
+  {% endif %}
+
+
+  <h1 class="text-center mb-4">COVID Prediction</h1>
+  <div class="form-container">
+    <form action="/predict" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="countyFips">County FIPS</label>
+          <input type="text" class="form-control" id="countyFips" name="countyFips" placeholder="Enter County FIPS">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="countyName">County Name</label>
+          <input type="text" class="form-control" id="countyName" name="countyName" placeholder="Enter County Name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="state">State</label>
+          <select id="state" name="state" class="form-control">
+            <option value="Oklahoma">Oklahoma</option>
+            <!-- Add more states if needed -->
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="state">State Fips</label>
+          <select id="statefip" name="statefip" class="form-control">
+            <option value="40">40</option>
+            <!-- Add more states if needed -->
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="hospFipsCode">Hospital FIPS Code</label>
+          <input type="text" class="form-control" id="hospFipsCode" name="hospFipsCode" placeholder="Enter Hospital FIPS Code">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="hospCountyPopulation">Hospital County Population</label>
+          <input type="text" class="form-control" id="hospCountyPopulation" name="hospCountyPopulation" placeholder="Enter Hospital County Population">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="vacRecipCounty">Vaccination Recipient County</label>
+          <input type="text" class="form-control" id="vacRecipCounty" name="vacRecipCounty" placeholder="Enter Vaccination Recipient County">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="recipState">Recipient State</label>
+          <select id="recipState" name="recipState" class="form-control">
+            <option value="Oklahoma">Oklahoma</option>
+            <!-- Add more states if needed -->
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="administeredDose">Administered Dose 1 Recipient</label>
+          <input type="text" class="form-control" id="administeredDose" name="administeredDose" placeholder="Enter Administered Dose 1 Recipient">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="rurFips">Rural FIPS</label>
+          <input type="text" class="form-control" id="rurFips" name="rurFips" placeholder="Enter Rural FIPS">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="rurPopulation">Rural Population</label>
+          <input type="text" class="form-control" id="rurPopulation" name="rurPopulation" placeholder="Enter Rural Population">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="day">Day</label>
+          <input type="text" class="form-control" id="day" name="day" placeholder="Enter Day">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="month">Month</label>
+          <select id="month" name="month" class="form-control">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="year">Year</label>
+          <select id="year" name="year" class="form-control">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+  </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
